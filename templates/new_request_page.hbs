@@ -1,24 +1,18 @@
-<div class="container-divider"></div>
-<div class="container">
-  <nav class="sub-nav">
-    {{breadcrumbs}}
-    <div class="search-container">
-      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" focusable="false" viewBox="0 0 12 12" class="search-icon" aria-hidden="true">
-        <circle cx="4.5" cy="4.5" r="4" fill="none" stroke="currentColor"/>
-        <path stroke="currentColor" stroke-linecap="round" d="M11 11L7.5 7.5"/>
-      </svg>
-      {{search submit=false}}
-    </div>
-  </nav>
-
-  <h1>
-    {{t 'submit_a_request'}}
-    <span class="follow-up-hint">
-      {{follow_up}}
-    </span>
-  </h1>
-
-  <div id="main-content" class="form">
-    {{request_form wysiwyg=true}}
-  </div>
+<div class="container"><nav class="sub-nav">{{breadcrumbs}}
+<div class="search-container">{{search submit=false}}</div>
+<div class="search-container"> </div>
+<div class="search-container"> </div>
+</nav>
+<h1>{{t 'submit_a_request'}} <span class="follow-up-hint"> {{follow_up}}</span></h1>
+<p>A quick guide to ticket categories <img src="https://html-online.com/editor/tiny4_9_11/plugins/emoticons/img/smiley-cool.gif" alt="cool" /></p>
+<p><br /><strong>IT Support</strong> - Got something wrong with your PC, need assistance with email, microsoft account or logins please let us know!</p>
+<p><br /><strong>Report a Product bug or Issue</strong> - This might be better off on the commnity board for everyone to see - <a href="https://myzoneinternal.zendesk.com/hc/en-us/community/topics/5860572120205-New-Issue">visit here</a></p>
+<p><br /><strong>Video Upload</strong> - Please make sure the requested videos meet the required specification - <a href="https://myzoneinternal.zendesk.com/hc/en-us/articles/8200982718349-Video-Upload-Requirements">check here</a></p>
+<p><br /><strong>Yellow Team Service Request</strong> - To update a facilty code for a gym chain or an owner, add a product to the shop / website, etc</p>
+<p><strong>Support Request Troubleshooting</strong> - Got a specific customer that needs help? Submit a request to the team to help out via email or phone. Please leave detailed information and all relevant contact details.</p>
+<p><br /><strong>Orders shipping and Accounts</strong> - Need a delivery ETA, help wiht a payment issue, or help with a customer account or subscriptions? Pick this option.</p>
+<p><br /><strong>Support Licensing Request</strong> - Got a club that needs to get started, submit the details here and the team will get in touch</p>
+<div id="main-content" class="form">{{request_form wysiwyg=true}}</div>
+<div class="form"> </div>
+<div class="form"> </div>
 </div>

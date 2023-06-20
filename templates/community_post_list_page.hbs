@@ -97,19 +97,23 @@
 
               {{#is status 'none'}}
               {{else}}
-                <span class="status-label-{{status_dasherized}} status-label striped-list-status">{{status_name}}</span>
+                <span class="status-label-{{status_dasherized}} status-label striped-list-status">
+              {{#is status 'not_planned'}}Gathering Information{{/is}}
+							{{#is status 'planned'}}In Devleopment {{/is}}
+							{{#is status 'answered'}}Ticket Rasied{{/is}}
+							{{#is status 'completed'}}Released{{/is}}</span>
               {{/is}}
             </span>
 
-            <div class="meta-group">
-              <span class="meta-data">{{author.name}}</span>
+            <ul class="meta-group">
+              <li class="meta-data">{{author.name}}</li>
               {{#if editor}}
-                <span class="meta-data">{{date edited_at timeago=true}}</span>
-                <span class="meta-data">{{t 'edited'}}</span>
+                <li class="meta-data">{{date edited_at timeago=true}}</li>
+                <li class="meta-data">{{t 'edited'}}</li>
               {{else}}
-                <span class="meta-data">{{date created_at timeago=true}}</span>
+                <li class="meta-data">{{date created_at timeago=true}}</li>
               {{/if}}
-            </div>
+            </ul>
           </span>
 
           <div class="post-overview-count striped-list-count">

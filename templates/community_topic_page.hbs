@@ -3,7 +3,7 @@
    <nav class="sub-nav">
     {{breadcrumbs}}
     <div class="search-container">
-      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" focusable="false" viewBox="0 0 12 12" class="search-icon" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" focusable="false" viewBox="0 0 12 12" class="search-icon">
         <circle cx="4.5" cy="4.5" r="4" fill="none" stroke="currentColor"/>
         <path stroke="currentColor" stroke-linecap="round" d="M11 11L7.5 7.5"/>
       </svg>
@@ -46,9 +46,17 @@
         <span class="dropdown-menu" role="menu">
           {{#each filters}}
             <a href="{{url}}" aria-selected="{{selected}}" role="menuitem">
-              {{name}}
-            </a>
+            {{#is identifier 'all'}}{{name}}{{else}}
+  					{{#is identifier 'not_planned'}}Gathering Feedback{{/is}}
+					  {{#is identifier 'planned'}}In Development{{/is}}
+					  {{#is identifier 'answered'}}Ticket Raised{{/is}}
+					  {{#is identifier 'completed'}}Released{{/is}}
+
+  {{/is}}
+              </a>
           {{/each}}
+              
+           
         </span>
       </span>
       <span class="dropdown">
@@ -86,20 +94,24 @@
 
               {{#is status 'none'}}
               {{else}}
-                <span class="status-label-{{status_dasherized}} status-label striped-list-status">{{status_name}}</span>
+                <span class="status-label-{{status_dasherized}} status-label striped-list-status">
+               {{#is status 'not_planned'}}Gathering Information{{/is}}
+							 {{#is status 'planned'}}In Development {{/is}}
+ 							{{#is status 'answered'}}Ticket Raised{{/is}}
+ 							{{#is status 'completed'}}Released{{/is}}</span>
               {{/is}}
             </span>
 
-            <div class="meta-group">
-              <span class="meta-data">{{author.name}}</span>
+            <ul class="meta-group">
+              <li class="meta-data">{{author.name}}</li>
               {{#if editor}}
-                <span class="meta-data">{{date edited_at timeago=true}}</span>
-                <span class="meta-data">{{t 'edited'}}</span>
+                <li class="meta-data">{{date edited_at timeago=true}}</li>
+                <li class="meta-data">{{t 'edited'}}</li>
               {{else}}
-                <span class="meta-data">{{date created_at timeago=true}}</span>
+                <li class="meta-data">{{date created_at timeago=true}}</li>
               {{/if}}
-            </div>
-          </span>
+            </ul>
+          
 
           <div class="post-overview-count striped-list-count">
             <span class="striped-list-count-item">
@@ -120,5 +132,5 @@
 
 <section class="container community-footer">
   <h2 class="community-footer-title">{{t 'suggest_new_post'}}</h2>
-  {{link 'new_post' topic_id=topic.id class='button button-large'}}
+  {{link 'new_post' class='button button-large'}}
 </section>
